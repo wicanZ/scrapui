@@ -1,0 +1,77 @@
+
+{% extends '../main/main.html' %}
+{% block content %}
+
+{% if user.is_authenticated %}
+
+    <div class="container">
+        
+
+    
+    <form method="post" action="">
+    {% csrf_token %}
+        <div class="btn-group ">
+            <button type="submit" class="btn btn-sm btn-outline-primary ml-2 " id="removeitems">delete</button>
+        </div>
+        {% if messages %}
+            {% for msg in messages %}
+                <div class="alert alert-info alert-dismissable" id="hide">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                {{msg.message}}
+                </div>
+            {% endfor %}
+        {% endif %}
+        <hr>
+        {% for data in page.object_list %}
+        <div class="alert alert-success" role="alert">
+            {% if data.status == False %}
+            <div class="float-right m-2">
+                {% if data.user == request.user %}
+                <a class="link m-4" href="{% url 'editscrap' data.id %}">Edit</a>
+                <input type="checkbox"  name="data" value="{{ data.id }}" id="datadelete" class="floa-right">
+                
+                {% endif %}
+
+            </div>
+                
+            
+                <h3>{{ data.name }}!</h3>
+                <hr>
+                <p>Dated : {{ data.created }}</p>
+                
+                <p>
+                    {{ data.address }}
+                </p>
+                {{ data.descriptive }}
+
+                <p class="float-right">
+                    <a href="{% url 'viewscrap' data.id %}">more...</a>
+                </p>
+                
+            {% endif %}
+        </div>
+        
+        {% endfor %}
+    </form>
+
+    
+
+    <ul class="pagination">
+        {% if page.has_previous %}
+        <li class="page-item"><a class="page-link" href="?page={{ page.previous_page_number}}">Previous</a></li>
+        {% endif %}
+        <li class="page-item"><a class="page-link" href="#">{{ page.number }} </a></li>
+        {% if page.has_next %}
+        <li class="page-item"><a class="page-link" href="?page={{ page.next_page_number}}">Next</a></li>
+        {% endif %}
+      </ul>
+    </div>
+{% else %}
+    <div class="alert alert-success" role="alert">
+        <h3>Welcome!</h3>
+        <a href="{% url 'register' %}">Signup</a>
+        <a href="{% url 'signin' %}">Login</a>
+    </div>
+{% endif %}
+
+{% endblock %}

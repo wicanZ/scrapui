@@ -1,0 +1,67 @@
+
+{% extends '../main/main.html' %}
+{% block content %}
+
+{% if user.is_authenticated %}
+<div class="container w-100 mb-4">
+    <div class="border p-2">
+        <h1 style="font-size: 20px;">
+           
+            {{ data.name }}
+        </h1>
+        <p class="float-right">
+            <i style="font-size:15px" class="fa">&#xf017;</i>{{ data.created }}
+        </p>
+        <br>
+        <hr>
+        <img width="100%" src="{{ data.images.url }}" alt="">
+        <hr>
+        <div class="container">
+            {{ data.descriptive}}
+        </div>
+    </div>
+
+
+
+
+    <div class="border p-2">
+        <small class="border-bottom">Related</small>
+
+        <div class="row text-center">
+            <div class="col">
+                <img width="200px" height="150px" src="{{ data.images.url }}" alt="">
+        <p>maste rewlrkgnkegnlfken</p>
+            </div>
+
+
+            <div class="col">
+                <img width="200px" height="150px" src="{{ data.images.url }}" alt="">
+        <p>maste rewlrkgnkegnlfken</p>
+            </div>
+
+
+
+            <div class="col">
+                <img width="200px" height="150px" src="{{ data.images.url }}" alt="">
+        <p>maste rewlrkgnkegnlfken</p>
+            </div>
+        </div>
+
+
+        
+
+    </div>
+    
+
+</div>
+
+    
+{% else %}
+    <div class="alert alert-success" role="alert">
+        <h3>Welcome!</h3>
+        <a href="{% url 'register' %}">Signup</a>
+        <a href="{% url 'signin' %}">Login</a>
+    </div>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends '../main/main.html' %}
+{% block content %}
+
+
+
+<div class="container h-100">
+
+    <div class="border align-items-center p-4 m-4">
+
+
+        {% if messages %}
+            {% for msg in messages %}
+                <div class="alert alert-info alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                {{msg.message}}
+                </div>
+            {% endfor %}
+        {% endif %}
+        <form action="" method="POST">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="username">
+                    username
+                </label>
+                <input name="username" class="form-control " id="username" type="text" placeholder="Username"/>
+                <small id="emailHelp" class="form-text text-muted">We'll never share your information with anyone else.</small>
+            </div>
+            <div class="mb-4 form-group">
+                <label class="" for="password">
+                Password
+                </label>
+                <input name="password" class="form-control" id="password" type="password" placeholder="Password"/>
+                
+            </div>
+            <div class="mb-2">
+                <input type="checkbox" name="showpass" id="showpassword" onclick="showPass()"/>
+                <label class="ml-4" for="showpassword" >show password.</label>
+            </div>
+            <div class="items-center text-center btn-group mb-4 ">
+                <button class=" btn btn-sm btn-primary" type="submit">
+                Sign In
+                </button>
+                
+            </div>
+        </form>
+
+        <p>Don't have an account? <a href="{% url 'register' %}">Signup here</a></p>
+
+    </div>
+    
+</div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,204 @@
+{% extends '../main/main.html' %}
+{% block content %}
+
+    {% if request.user.is_authenticated %}
+    <section class="conainer ">
+      <div class="container border">
+        <div class="text-center bg-img">
+            <h1 class="center-text py-4">scrappui help you clean your sourroounding</h1>
+            <h3>We are team of talented designers</h3>
+            <p >Our team will make your life easier</p>
+            
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+
+          </div>
+
+
+        </div>
+
+
+        
+        
+
+        <div class="container border p-4 m-2">
+            <h1 class="text-center">About Us</h1>
+            <hr>
+
+
+            <div class="cards-wrapper ">
+              <div class="card p-2 m-4">
+                <img src="/static/img/hero-img.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+              <div class="card p-2 m-4 ">
+                <img src="/static/img/hero-img.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+              <div class="card p-2 m-4">
+                <img src="/static/img/hero-img.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="rounded border p-2 m-2">
+          <h1 class="text-center">
+              Want to get rid of your old vehicle?
+          </h1>
+          <hr>
+          <p>
+              Let go of your age old unfit motor that doesn't serve its purpose neither to you nor to the environment & help bring circularity in the Indian automobile sector. 
+  
+          </p>
+          why 1
+  
+          <span>
+              A vehicle as old as 10 to 15 years becomes unfit to drive on roads due to its decreased efficiency and increased carbon emissions, making it prone to road accidents, requires high maintenance, and causes extensive harm to the environment.
+  
+          </span>
+  
+      </div>
+
+       
+
+        
+    </div>
+    </section>
+    {% else %} 
+
+
+    <!-- chatbot body  -->
+
+    <div class="helper" id="but-chat">
+        <button type="button" class="" data-toggle="modal" data-target="#myModal2"> 
+            <i class="fa fa-comments btn btn-primary" aria-hidden="true">chat</i>
+        </button>
+    </div>
+      <div class="container">
+          <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                  <p class="text-muted">hello, welcome to our scrapui , how can i helped you?</p>
+                  <div class="body-bot">
+                    <ul class="chat" id="chatbot">
+                     <!-- message in-box -->
+                    </ul>
+                    <div class="footer-bot">
+                        <input name="bot" class="input-bot" id="bot" type="text" placeholder="reply to scrapui.."/>
+                        <button class="reply contain" type="submit" onclick="Chatus()">reply</button>
+                    </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    <div class="container border">
+        <div class="text-center bg-img">
+            <h1 class="center-text py-4">scrappui help you clean your sourroounding</h1>
+            <h3>We are team of talented designers</h3>
+            <p >Our team will make your life easier</p>
+            
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+
+          </div>
+
+
+        </div>
+
+
+        
+        
+
+        <div class="container border p-4 m-2">
+            <h1 class="text-center">About Us</h1>
+            <hr>
+
+
+            <div class="cards-wrapper ">
+              <div class="card p-2 m-4">
+                <img src="/static/img/hero-img.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+              <div class="card p-2 m-4 ">
+                <img src="/static/img/hero-img.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+              <div class="card p-2 m-4">
+                <img src="/static/img/hero-img.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="rounded border p-2 m-2">
+          <h1 class="text-center">
+              Want to get rid of your old vehicle?
+          </h1>
+          <hr>
+          <p>
+              Let go of your age old unfit motor that doesn't serve its purpose neither to you nor to the environment & help bring circularity in the Indian automobile sector. 
+  
+          </p>
+          why 1
+  
+          <span>
+              A vehicle as old as 10 to 15 years becomes unfit to drive on roads due to its decreased efficiency and increased carbon emissions, making it prone to road accidents, requires high maintenance, and causes extensive harm to the environment.
+  
+          </span>
+  
+      </div>
+
+       
+
+        
+    </div>
+    
+
+
+
+    
+    {% endif %}
+{% endblock %}
