@@ -120,6 +120,7 @@ function Chatus(){
     resetinput()
 }
 
+
 function resetinput(){
     if(botnput !== ''){
         botnput.value = '';
@@ -133,4 +134,76 @@ function showPass(){
         password.type = 'password'
     }
     console.log( password )
+}
+
+
+
+function disapearTime(id , mess , value ) {
+    setTimeout(
+        function() {
+            id.innerHTML = mess ;
+
+        }
+    , value ) ;
+
+    setTimeout(
+        function() {
+            id.classList.remove('error') ;
+
+        }
+    , value ) ;
+    //id.classList.remove('error') ;
+}
+
+
+function ValidateEmail( value ) 
+{
+ if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value ))
+  {
+    return value;
+  }
+    return (false)
+}
+
+function ValidatePhone ( value ) {
+    if (/^(0|91)?[6-9][0-9]{9}$/.test( value )) {
+        return  value;
+    }
+    else{
+        return false;
+
+    }
+}
+
+function contactusww( ) {
+    let message = document.getElementById('mess') ;
+
+    let email = contact_email.value;
+    let phone = detail.value ;
+
+
+    if( email === '' || phone === '' ) {
+        message.classList.add("error");
+        message.innerHTML = 'Input cannot be Empty ' ;
+        disapearTime( message , ' ' , 4000 ) ;  
+    }
+
+    else { 
+        if( (!ValidateEmail( email ) ) || (!ValidatePhone( phone ) ) ){
+            message.classList.add("error");
+            message.textContent = 'invalid Email and Phone number ' ;
+            disapearTime( message , ' ' , 4000 ) ; 
+        }else{
+            message.classList.add("error");
+            message.textContent = 'Thanks' ;
+            disapearTime( message , ' ' , 4000 ) ; 
+
+            location.href = `https://wa.me/6009188445?text=This is my Gmail=${email}+ and this is my phone number =${ phone }`
+
+        }
+    }
+
+    console.log( ValidateEmail( email ) , ValidatePhone( phone ) ) ;
+
+    //location.href = `https://wa.me/6009188445?text=This is my Gmail=${email}+ and this is my phone number =${detail}`
 }

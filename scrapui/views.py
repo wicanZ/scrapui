@@ -194,3 +194,55 @@ def chat( request ) :
         return JsonResponse(context ,safe=False)
     
     return render(request,template,context)
+
+
+import re
+def check_valid_phone(val) :
+    phone = re.compile(r"[0-9]{9,12}$") 
+    phone_regex = phone.match(val)
+    return phone_regex
+
+def valid(data) :
+    if check_valid_phone(data):
+        return data
+    return False
+    #raise ValidationError('Please enter another phone number')
+
+def valid_email ( value  ):
+    #pat = r"\"?([-a-zA-Z0-9.`?{}]+@\w+\.\w+)\"?"     #"^[a-zA-Z0-9-_]+@[a-zA-Z0-9]+\.[a-z]{1,3}$"
+    #if re.match(pat,  value ):
+    ch = bool( re.search(r"^[\w\.\+\-]+\@[\w]+\.[a-z]{2,3}$",  value ) )
+
+    return ch
+    
+def contact( request ) :
+    template = 'scrapui/contact.html'
+    context = {}
+
+    if request.method == 'POST':
+        email = request.POST.get('c_email')
+        detail =  request.POST.get('detail') 
+        if ( valid( detail ) == False ) or ( valid_email( email  ) == False )  :
+            messages.info( request , 'Phone number  and email is not valid ')
+
+        else :
+            messages.info ( request , 'THANK YOU FOR CONTACTING US')
+            link = f'https://wa.me/6009188445?text=This is my Gmeal={email}+ and this is my phone number ={ detail}'
+            redirect( link )
+
+        # if valid_email( email  ) == False :
+        #     messages.info( request , 'Invalid Emialis not valid ')
+
+    return render ( request , template , context )
+
+
+def blog ( request ) :
+    template = 'scrapui/blog.html'
+    context = {}
+    return render (request , template , context )
+
+def feature( request ) :
+    template = 'scrapui/feature.html'
+    context = {}
+
+    return render( request , template , context)

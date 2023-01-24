@@ -4,15 +4,7 @@ from django.core.validators import RegexValidator
 from django.core.exceptions import ValidationError
 import re
 # Create your models here.
-def check_valid_phone(val) :
-    phone = re.compile("(0|91)?[6-9][0-9]{9}")
-    phone_regex = phone.match(val)
-    return phone_regex
 
-def valid(data) :
-    if check_valid_phone(data):
-        return data
-    raise ValidationError('Please enter another phone number')
 
 
 class ScrapItem(models.Model ) :

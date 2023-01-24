@@ -19,6 +19,9 @@ from scrapui.views import (
     editscrap,
     viewscrap,
     chat,
+    contact ,
+    blog ,
+    feature ,
 )
 
 urlpatterns = [
@@ -34,6 +37,10 @@ urlpatterns = [
     path('listscrap/' , listscrap , name='listscrap') ,
     path('viewscrap/<int:id>/' , viewscrap , name='viewscrap') ,
     path('editscrap/<int:id>/' , editscrap , name='editscrap') ,
+
+    path('contact/' , contact , name='contact'),
+    path('blog/' , blog , name='blog') ,
+    path('feature/' , feature , name='feature') ,
 
 
     path('bot/', chat , name='bot' ) ,

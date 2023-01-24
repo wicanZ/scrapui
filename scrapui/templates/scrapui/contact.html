@@ -1,0 +1,53 @@
+{% extends '../main/main.html' %}
+{% block content %}
+
+
+
+<div class="container h-100">
+
+    <div class="border rounded align-items-center p-4 m-4">
+
+
+        {% if messages %}
+            {% for msg in messages %}
+                <div class="alert alert-info alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                {{msg.message}}
+                </div>
+            {% endfor %}
+        {% endif %}
+        <h3 class="text-center mb-2">Contact us</h3>
+        <form action="" method="POST">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="email">
+                    Enter your Gmail
+                </label>
+                <input name="c_email" class="form-control " id="contact_email" type="email" placeholder="Eg : wzard@gmail.com"/>
+                <small id="emailHelp" class="form-text text-muted">We'll never share your information with anyone</small>
+            </div>
+            <div class="mb-4 form-group">
+                <label class="" for="detail">
+                Enter your Phone Number
+                </label>
+                <input name="detail" class="form-control" id="detail" type="text" placeholder="Eg : 6009188444"/>
+                
+            </div>
+            <div class="items-center text-center btn-group mb-4 ">
+                <button class=" btn btn-md btn-primary" type="submit">
+                Send
+                </button>
+                
+            </div>
+        </form>
+
+       
+    </div>
+    
+</div>
+
+
+
+
+{% endblock %}

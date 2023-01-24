@@ -42,7 +42,7 @@ class Scrapform( forms.ModelForm ) :
     zip = forms.IntegerField(label='zip' , widget=forms.NumberInput(
         attrs={'class':'form-control'}
     ))
-    descriptive = forms.CharField(label='Descriptive',max_length=50 , widget=forms.Textarea(
+    descriptive = forms.CharField(label='Descriptive',max_length=500 , widget=forms.Textarea(
         attrs={'class':'form-control','placeholder':'tell us about your scrap in short'}
     ))
     class Meta :

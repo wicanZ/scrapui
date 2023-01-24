@@ -2,10 +2,41 @@
 {% block content %}
 
     {% if request.user.is_authenticated %}
+
     <section class="conainer ">
       <div class="container border">
+
+        <div class="container-fluid border p-4 m-2">
+          <h1 class="text-center">Latest Scrap </h1>
+          <hr>
+          <div class="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4 pt-2">
+            {% for scraps in scrap %}
+
+            <div class="col-xs-5 p-2">
+              <div class="cards-wrapper about-card">
+                <div class="card p-2">
+                  <img src="{{ scraps.images.url }}" class="card-img-top" alt="{{ scraps.name }}">
+                  <div class="card-bod">
+                    <h5 class="card-title ml-2">{{ scraps.name}} </h5>
+                    <p class="card-text m-2">{{ scraps.descriptive| slice:250 }} </p>
+                    <a href="{% url 'viewscrap' scraps.id %}" class="btn btn-primary">View </a>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+
+            {% endfor %}
+            
+          </div>
+      </div>
+
+
+
+
+
         <div class="text-center bg-img">
-            <h1 class="center-text py-4">scrappui help you clean your sourroounding</h1>
+            <h1 class="center-text py-4" style="font-size: 2vw;">scrappui help you clean your sourroounding</h1>
             <h3>We are team of talented designers</h3>
             <p >Our team will make your life easier</p>
             
@@ -13,6 +44,26 @@
 
         <div class="row">
           <div class="col-md-12">
+
+            <div class="rounded border p-2 m-2">
+              <h1 class="text-center" style="font-size: larger;">
+                  Want us to get rid of your scrap item?
+              </h1>
+              <hr>
+              <a class="text-primary" style="text-decoration: none;" href="#contact">Contact us</a>
+             
+              <p>
+                  Let go of your age old unfit motor that doesn't serve its purpose neither to you nor to the environment & help bring circularity in the Indian automobile sector. 
+      
+              </p>
+              why 1
+      
+              <span>
+                  A vehicle as old as 10 to 15 years becomes unfit to drive on roads due to its decreased efficiency and increased carbon emissions, making it prone to road accidents, requires high maintenance, and causes extensive harm to the environment.
+      
+              </span>
+      
+              </div>
 
           </div>
 
@@ -23,64 +74,128 @@
         
         
 
-        <div class="container border p-4 m-2">
-            <h1 class="text-center">About Us</h1>
-            <hr>
+        <div class="container-fluid border p-4 m-2">
+          <h1 class="text-center">About Us</h1>
+          <hr>
+          <div class="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4 pt-2">
 
-
-            <div class="cards-wrapper ">
-              <div class="card p-2 m-4">
-                <img src="/static/img/hero-img.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+            <div class="col-xs-5 p-2">
+              <div class="cards-wrapper about-card">
+                <div class="card p-2">
+                  <img src="/static/img/hero-img.png" class="card-img-top" alt="...">
+                  <div class="card-bod">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
                 </div>
-              </div>
-              <div class="card p-2 m-4 ">
-                <img src="/static/img/hero-img.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-              <div class="card p-2 m-4">
-                <img src="/static/img/hero-img.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
+                
               </div>
             </div>
-        </div>
+            
+
+            <div class="col-xs-5 p-2">
+              <div class="cards-wrapper about-card">
+                <div class="card p-2">
+                  <img src="/static/img/hero-img.png" class="card-img-top" alt="...">
+                  <div class="card-bod">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+
+            <div class="col-xs-5 p-2">
+              <div class="cards-wrapper about-card">
+                <div class="card p-2">
+                  <img src="/static/img/hero-img.png" class="card-img-top" alt="...">
+                  <div class="card-bod">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
 
 
+            <div class="col-xs-5 p-2">
+              <div class="cards-wrapper about-card">
+                <div class="card p-2">
+                  <img src="/static/img/hero-img.png" class="card-img-top" alt="...">
+                  <div class="card-bod">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
 
 
+            <div class="col-xs-5 p-2">
+              <div class="cards-wrapper about-card">
+                <div class="card p-2">
+                  <img src="/static/img/hero-img.png" class="card-img-top" alt="...">
+                  <div class="card-bod">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
 
-        <div class="rounded border p-2 m-2">
-          <h1 class="text-center">
-              Want to get rid of your old vehicle?
-          </h1>
-          <hr>
-          <p>
-              Let go of your age old unfit motor that doesn't serve its purpose neither to you nor to the environment & help bring circularity in the Indian automobile sector. 
-  
-          </p>
-          why 1
-  
-          <span>
-              A vehicle as old as 10 to 15 years becomes unfit to drive on roads due to its decreased efficiency and increased carbon emissions, making it prone to road accidents, requires high maintenance, and causes extensive harm to the environment.
-  
-          </span>
-  
+
+          </div>
       </div>
+    </div>
 
-       
+
+
+    <div class="container h-100" id="contact">
+
+      <div class="border rounded align-items-center p-4 m-4">
+              <div class="m-2 border-bottom">
+                  <p>Contact Us</p>
+                  <div class="">
+                    <div id="mess" class=""></div>
+                  </div>
+                  
+              </div>
+
+
+
+              <div class="form-group">
+                  <label for="email">
+                      Enter your Gmail
+                  </label>
+                  <input name="c_email" class="form-control " id="contact_email" value="" type="email" placeholder="Eg : wzard@gmail.com" required/>
+                  <small id="emailHelp" class="form-text text-muted">We'll never share your information with anyone</small>
+              </div>
+              <div class="mb-4 form-group">
+                  <label class="" for="detail">
+                  Enter your Phone Number
+                  </label>
+                  <input name="detail" class="form-control" id="detail" type="text" value="" placeholder="Eg : 6009188444" required/>
+                  
+              </div>
+              <div class="items-center text-center btn-group mb-4 ">
+                  <button class=" btn btn-sm btn-primary"  onclick="contactusww()">
+                  Send
+                  </button>
+                  
+              </div>
 
         
+      </div>
+      
     </div>
     </section>
     {% else %} 
@@ -127,6 +242,26 @@
         <div class="row">
           <div class="col-md-12">
 
+            <div class="rounded border p-2 m-2">
+              <h1 class="text-center" style="font-size: larger;">
+                  Want us to get rid of your scrap item?
+              </h1>
+              <hr>
+              <a class="text-primary" style="text-decoration: none;" href="#contact">Contact us</a>
+             
+              <p>
+                  Let go of your age old unfit motor that doesn't serve its purpose neither to you nor to the environment & help bring circularity in the Indian automobile sector. 
+      
+              </p>
+              why 1
+      
+              <span>
+                  A vehicle as old as 10 to 15 years becomes unfit to drive on roads due to its decreased efficiency and increased carbon emissions, making it prone to road accidents, requires high maintenance, and causes extensive harm to the environment.
+      
+              </span>
+      
+              </div>
+
           </div>
 
 
@@ -136,69 +271,129 @@
         
         
 
-        <div class="container border p-4 m-2">
-            <h1 class="text-center">About Us</h1>
-            <hr>
+        <div class="container-fluid border p-4 m-2">
+          <h1 class="text-center">About Us</h1>
+          <hr>
+          <div class="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4 pt-2">
 
-
-            <div class="cards-wrapper ">
-              <div class="card p-2 m-4">
-                <img src="/static/img/hero-img.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+            <div class="col-xs-5 p-2">
+              <div class="cards-wrapper about-card">
+                <div class="card p-2">
+                  <img src="/static/img/hero-img.png" class="card-img-top" alt="...">
+                  <div class="card-bod">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
                 </div>
-              </div>
-              <div class="card p-2 m-4 ">
-                <img src="/static/img/hero-img.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-              <div class="card p-2 m-4">
-                <img src="/static/img/hero-img.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
+                
               </div>
             </div>
-        </div>
+            
+
+            <div class="col-xs-5 p-2">
+              <div class="cards-wrapper about-card">
+                <div class="card p-2">
+                  <img src="/static/img/hero-img.png" class="card-img-top" alt="...">
+                  <div class="card-bod">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+
+            <div class="col-xs-5 p-2">
+              <div class="cards-wrapper about-card">
+                <div class="card p-2">
+                  <img src="/static/img/hero-img.png" class="card-img-top" alt="...">
+                  <div class="card-bod">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
 
 
+            <div class="col-xs-5 p-2">
+              <div class="cards-wrapper about-card">
+                <div class="card p-2">
+                  <img src="/static/img/hero-img.png" class="card-img-top" alt="...">
+                  <div class="card-bod">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
 
 
+            <div class="col-xs-5 p-2">
+              <div class="cards-wrapper about-card">
+                <div class="card p-2">
+                  <img src="/static/img/hero-img.png" class="card-img-top" alt="...">
+                  <div class="card-bod">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
 
-        <div class="rounded border p-2 m-2">
-          <h1 class="text-center">
-              Want to get rid of your old vehicle?
-          </h1>
-          <hr>
-          <p>
-              Let go of your age old unfit motor that doesn't serve its purpose neither to you nor to the environment & help bring circularity in the Indian automobile sector. 
-  
-          </p>
-          why 1
-  
-          <span>
-              A vehicle as old as 10 to 15 years becomes unfit to drive on roads due to its decreased efficiency and increased carbon emissions, making it prone to road accidents, requires high maintenance, and causes extensive harm to the environment.
-  
-          </span>
-  
+
+          </div>
       </div>
+    </div>
 
-       
+
+
+    <div class="container h-100" id="contact">
+
+      <div class="border rounded align-items-center p-4 m-4">
+              <div class="m-2 border-bottom">
+                  <h4 class="text-muted">Contact Us</h4>
+                  <div class="">
+                    <div id="mess" class=""></div>
+                  </div>
+                  
+              </div>
+
+
+
+              <div class="form-group">
+                  <label for="email">
+                      Enter your Gmail
+                  </label>
+                  <input name="c_email" class="form-control " id="contact_email" value="" type="email" placeholder="Eg : wzard@gmail.com" required/>
+                  <small id="emailHelp" class="form-text text-muted">We'll never share your information with anyone</small>
+              </div>
+              <div class="mb-4 form-group">
+                  <label class="" for="detail">
+                  Enter your Phone Number
+                  </label>
+                  <input name="detail" class="form-control" id="detail" type="text" value="" placeholder="Eg : 6009188444" required/>
+                  
+              </div>
+              <div class="items-center text-center btn-group mb-4 ">
+                  <button class=" btn btn-sm btn-primary"  onclick="contactusww()">
+                  Send
+                  </button>
+                  
+              </div>
 
         
+      </div>
+      
     </div>
-    
-
-
-
-    
+  
     {% endif %}
 {% endblock %}
