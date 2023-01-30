@@ -24,7 +24,7 @@ class ScrapItem(models.Model ) :
 
 
     def __str__( self ) :
-        return self.name 
+        return self.name  
 
 class MultiScrapImage( models.Model ):
     name   = models.ForeignKey( ScrapItem , default=None, on_delete=models.CASCADE )

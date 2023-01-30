@@ -24,7 +24,7 @@ class RegistrationForm(UserCreationForm):
         fields = ['username','email', 'password1', 'password2']
 
 class Scrapform( forms.ModelForm ) :
-    name = forms.CharField(label='name',max_length=50 , widget=forms.TextInput(
+    name = forms.CharField(label='title',max_length=50 , widget=forms.TextInput(
         attrs={'class':'form-control'}
     ))
     address = forms.CharField(label='address',max_length=50 , widget=forms.TextInput(
@@ -43,7 +43,7 @@ class Scrapform( forms.ModelForm ) :
         attrs={'class':'form-control'}
     ))
     descriptive = forms.CharField(label='Descriptive',max_length=500 , widget=forms.Textarea(
-        attrs={'class':'form-control','placeholder':'tell us about your scrap in short'}
+        attrs={'class':'form-control','placeholder':' Please provide your question and any additional context that will be usefull for our team','rows':5}
     ))
     class Meta :
         model = ScrapItem

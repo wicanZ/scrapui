@@ -7,10 +7,19 @@ const botmessage = document.querySelector('.right');
 const usermessage = document.querySelector('.left');
 let message = [] ; 
 
+let  h = window.innerHeight - 20 ; 
+
 window.onload = function(){
+    // let b_chat = document.querySelector('.footer-bot')  ;
+    // b_chat.style.height = 100 + 'px' ;
+    // console.log( b_chat)
+
+    let chat_body = document.querySelector('.body-bot') ;
+    //chat_body.style.height = h + 'px' ;
+
     try {
         if( but !== null) {
-            setInterval(displaychat,1000) ;
+            setInterval(displaychat,100) ;
         }
     } catch (err) {
         console.log( err.message )
@@ -42,8 +51,11 @@ function getRandomWord(arr)
     return data
 }
 
+function cleaninput(value) {
+    let text = value.toLowerCase().replace(/[^\w\s\d]/gi, "")
+}
 function Chatus(){
-    let usertext = botnput.value.toLowerCase() ;
+    let usertext = botnput.value.toLowerCase().replace(/[^\w\s\d]/gi, "") ;
     let bottext = '' ;
     const usernode = document.createElement("li");
     const botnode = document.createElement("li");
@@ -65,7 +77,11 @@ function Chatus(){
             link.setAttribute('target','_blank')
             link.setAttribute('href',"http://127.0.0.1:8000/register/")
             link.click() ;
-            bottext = link;
+
+            var str = "This is link";
+            var linkr = str.link("http://127.0.0.1:8000/register/");
+            var msg = "Hi "+linkr;
+            bottext = document.write(msg);
         }else if(data.signin.includes(usertext)) {
             link.title = 'signin this link' ;
             link.text = 'signin'
@@ -80,7 +96,7 @@ function Chatus(){
 
         }else{
             usertext = botnput.value;
-            bottext = 'please contact the admin@gmail.com for more details!';
+            bottext = 'please contact admin@gmail.com for more details!';
         }
     }
 
@@ -165,45 +181,36 @@ function ValidateEmail( value )
     return (false)
 }
 
-function ValidatePhone ( value ) {
-    if (/^(0|91)?[6-9][0-9]{9}$/.test( value )) {
-        return  value;
-    }
-    else{
-        return false;
 
-    }
-}
 
 function contactusww( ) {
-    let message = document.getElementById('mess') ;
+    let mess = document.getElementById('mess') ;
 
     let email = contact_email.value;
-    let phone = detail.value ;
+    let message = message_c.value ;
 
 
-    if( email === '' || phone === '' ) {
-        message.classList.add("error");
-        message.innerHTML = 'Input cannot be Empty ' ;
-        disapearTime( message , ' ' , 4000 ) ;  
+    if( email === '' || message === '' ) {
+        mess.classList.add("error");
+        mess.innerHTML = 'Input cannot be Empty ' ;
+        disapearTime( mess , ' ' , 4000 ) ;  
     }
 
     else { 
-        if( (!ValidateEmail( email ) ) || (!ValidatePhone( phone ) ) ){
-            message.classList.add("error");
-            message.textContent = 'invalid Email and Phone number ' ;
-            disapearTime( message , ' ' , 4000 ) ; 
+        if( (!ValidateEmail( email ) )){
+            mess.classList.add("error");
+            mess.textContent = 'invalid Email and Phone number ' ;
+            disapearTime( mess , ' ' , 4000 ) ; 
         }else{
-            message.classList.add("error");
-            message.textContent = 'Thanks' ;
-            disapearTime( message , ' ' , 4000 ) ; 
-
-            location.href = `https://wa.me/6009188445?text=This is my Gmail=${email}+ and this is my phone number =${ phone }`
+            mess.classList.add("error");
+            mess.textContent = 'Thank you for reach out to us' ;
+            disapearTime( mess , ' ' , 4000 ) ; 
+            //location.href = `https://wa.me/6009188445?text=This is my Gmail=${email}+ and this is my phone number =${ message }`
 
         }
     }
 
-    console.log( ValidateEmail( email ) , ValidatePhone( phone ) ) ;
+    console.log( ValidateEmail( email ) ,  message )  ;
 
     //location.href = `https://wa.me/6009188445?text=This is my Gmail=${email}+ and this is my phone number =${detail}`
 }

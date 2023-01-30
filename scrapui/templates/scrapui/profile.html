@@ -27,8 +27,8 @@
                     class="rounded-circle img-fluid" style="width: 100px;" />
                 </div>
                 <h4 class="mb-2">{{ request.user }} </h4>
-                <p class="text-muted mb-4">{{ request.user.date_joined| date:"Y/M/d" }} <span class="mx-2">|</span> <a
-                    href="#!">{{ request.user.email }}</a></p>
+                <p class="text-muted mb-4" title="joined">{{ request.user.date_joined| date:"Y/M/d" }} <span class="mx-2">|</span> 
+                    <a class="text-muted" style="text-decoration: none;" href="#!">{{ request.user.email }}</a></p>
                 <div class="mb-4 pb-2">
                 <button type="button" class="btn btn-outline-primary btn-floating">
                     <i class="fa fa-facebook-f fa-lg"></i>
@@ -47,12 +47,12 @@
                     {% csrf_token %}
         
                     <div class="form-group">
-                        <input name="username" class="form-control " id="username" type="text" placeholder="Username"/>
+                        <input name="username" class="form-control " id="username" type="text" placeholder="Username" autocomplete="off"/>
                         <small id="emailHelp" class="form-text text-muted">once it's success, all your information will be lost</small>
                     </div>
                     <div class="items-center text-center btn-group ">
                         <button class=" btn btn-sm btn-primary" type="submit">
-                        remove your account
+                        deactivate your account
                         </button>
                         
                     </div>

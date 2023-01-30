@@ -131,6 +131,23 @@ body{
 }
  */
 
+.logo-name {
+    color: red ;
+}
+.logo-name .title {
+    color :#3991bd ;
+    font-size: 1.5em;
+    letter-spacing: 2px;
+    animation: ui infinite 5s;
+}
+@keyframes ui {
+    0%   {color:red;}
+    25%  {color:yellow; }
+    50%  {color:blue; }
+    75%  {color:green; }
+    100% {color:red; }
+  }
+
 .image-scrap {
     width: 200px;
     height: 200px;
@@ -142,26 +159,68 @@ body{
 }
 
 
-/* modal chatbot */
-.modal-dialog {
-    position: fixed;
-    
-    float: right;
-    margin: auto;
-    width: 220px;
-    height: 600px;
-    right: 0px;
+
+.image-txt-container {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    margin : 5px;
 }
-.modal-content {
-    height: 100%;
-    width: 540px;
-    background-color: #000;
+.image-txt-container .contain {
+    width: fit-content;
+   
+
 }
 
-.modal-body {
-    background-color: #000;
-    color: #3991bd;
+.image-txt-container .viewimg {
+    width: 500px ;
+    height: auto;
+    display: flex;
+    align-items: center;
 }
+
+@media only screen and (max-width: 800px) {
+    .image-txt-container {
+        display:block;
+        flex-direction: column;
+        background-color: #000;
+
+    }
+    .image-txt-container .viewimg {
+        width: 100% ;
+        display: block;
+        align-items: center;
+    }
+
+    .image-txt-container .contain {
+        display: block;
+    
+    }
+    
+}
+
+
+ /* ok let try  */
+
+.body-view {
+    display: flex ;
+    grid-template-columns: 300px 1fr;
+    gap: 1rem;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+.body-view img {
+    max-width: 100%;
+    height: auto;
+  }
+  @media (max-width: 650px) {
+    .body-view {
+      display: block;
+    }
+  }
+
+/* modal chatbot */
 .helper {
     background-color: #003366;
     display: none;
@@ -178,8 +237,31 @@ body{
 }
 
 
+.modal-dialog {
+    float: right;
+    margin: auto;
+    width: 220px;
+    right: 6px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.modal-content {
+    background-color: #000;
+    width: 100%;
+}
+
+.modal-body {
+    background-color: #000;
+    color: #3991bd;
+    width: 400px;
+    height: 650px;
+}
+
+
+
 .footer-bot {
-    margin-bottom: 5%;
+    /* margin-bottom: 5px;
     position: fixed;
     display: inline;
     bottom: 0;
@@ -188,14 +270,20 @@ body{
     text-align: center;
     margin: 10px;
     background-color: #003366;
-    padding: 10px;
+    padding: 10px; */
+    position: fixed;
+    display: inline;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
 }
+
 .body-bot {
     scroll-behavior: auto;
     overflow: scroll;
     color: #000;
-    height: 380px;
-    min-height: 350px;
+    min-height: 200px;
+    height: 500px;
     background-color: antiquewhite;
     position: relative;
     max-width: 400px;
@@ -244,7 +332,6 @@ body{
 }
 
 .contain{
-    display: inline;
     padding: 10px;
     width: 50px;
     color: #003366;

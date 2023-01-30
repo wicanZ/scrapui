@@ -3,22 +3,41 @@
 {% block content %}
 
 {% if user.is_authenticated %}
-<div class="container w-100 mb-4">
+<div class="container-fluid mb-4">
     <div class="border p-2">
-        <h1 style="font-size: 20px;">
+        <div style="font-size: 20px;">
+            <span class="rounded-circle bg-dark text-center p-1 m-2" >
+               {{ request.user.username|slice:"1" }} 
+            </span>
            
-            {{ data.name }}
-        </h1>
-        <p class="float-right">
-            <i style="font-size:15px" class="fa">&#xf017;</i>{{ data.created }}
-        </p>
-        <br>
-        <hr>
-        <img width="100%" src="{{ data.images.url }}" alt="">
-        <hr>
-        <div class="container">
-            {{ data.descriptive}}
+            <span>
+                {{ data.name }} {% if data.status == True %} <span>confirm </span> {% endif %}
+            </span>
+            <p class="mt-4" style="font-size :10px;">
+                posted : {{ data.created }}
+            </p>
+            <hr>
         </div>
+        <div class="image-txt-container rounded">
+            <img class="viewimg rounded" src="{{ data.images.url }}" alt="{{ data.name }}">
+            <div class="contain">
+                <p>
+                    Pincode : {{ data.zip }}
+                </p>
+                <p>
+                    address : {{ data.address }}
+                </p>
+                <div>
+                    <label for="mess">Message :</label>
+                    <p>
+                        {{ data.descriptive}}
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        
+        
     </div>
 
 
@@ -28,31 +47,24 @@
         <small class="border-bottom">Related</small>
 
         <div class="row text-center">
-            <div class="col">
-                <img width="200px" height="150px" src="{{ data.images.url }}" alt="">
-        <p>maste rewlrkgnkegnlfken</p>
-            </div>
+            {% for datasr in scrap %}
+                {% if datasr.id != data.id %}
+                <div class="col">
+                    
+                    <a style="text-decoration: none;"  href="{% url 'viewscrap' datasr.id %}">
+                        <img width="200px" height="150px" src="{{ datasr.images.url }}" alt="">
+                        <p>{{ datasr.name}}</p>
+                    </a>  
+                </div>
+            {% endif %}
 
 
-            <div class="col">
-                <img width="200px" height="150px" src="{{ data.images.url }}" alt="">
-        <p>maste rewlrkgnkegnlfken</p>
-            </div>
+        {% endfor %}
 
-
-
-            <div class="col">
-                <img width="200px" height="150px" src="{{ data.images.url }}" alt="">
-        <p>maste rewlrkgnkegnlfken</p>
-            </div>
         </div>
 
-
-        
-
     </div>
-    
-
+      
 </div>
 
     

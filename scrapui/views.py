@@ -63,9 +63,12 @@ def profile(request) :
         return redirect('/')
     return render (request , template , context)
 
+
 def logoutuser(request):
     logout(request)
-    return redirect('signin')
+    return redirect('home')
+
+
 
 
 def deactivate( request ) :
@@ -106,8 +109,8 @@ def addscrap(request ) :
 def listscrap( request ) :
     template = 'scrapui/listscrap.html'
     context = {}
-    scrap = ScrapItem.objects.all()
-    page = Paginator(scrap , 1 )
+    scrap = ScrapItem.objects.filter(status=False)
+    page = Paginator(scrap , 3 )
     number_page = request.GET.get('page',1)
 
     try:
@@ -135,10 +138,10 @@ def viewscrap( request , id ) :
     template = 'scrapui/viewscrap.html'
     con = {}
     getid = get_object_or_404(ScrapItem , id=id)
-    scrap = ScrapItem.objects.all()[:3]
+    scrap = ScrapItem.objects.all()[:5]
 
     con['data'] = getid
-    con['scrpa'] = scrap
+    con['scrap'] = scrap
     return render(request , template ,con )
 
 
@@ -174,26 +177,7 @@ def deletescrap ( request ) :
     return redirect('viewscrap')
     
 
-from django.views.decorators.csrf import csrf_exempt, csrf_protect
-# @csrf_exempt
-# @csrf_protect
-from django.views.decorators.csrf import requires_csrf_token
 
-# @requires_csrf_token
-@csrf_exempt
-def chat( request ) :
-    datas = [{'name': 'Peter', 'email': 'peter@example.org'},
-            {'name': 'Julia', 'email': 'julia@example.org'}]
-    template = 'scrapui/index.html'
-    context = {
-        'message' : 'hello'
-    }
-    if request.method == 'POST':
-        data = request.GET.get('bot')
-        print(data)
-        return JsonResponse(context ,safe=False)
-    
-    return render(request,template,context)
 
 
 import re
@@ -222,13 +206,12 @@ def contact( request ) :
     if request.method == 'POST':
         email = request.POST.get('c_email')
         detail =  request.POST.get('detail') 
-        if ( valid( detail ) == False ) or ( valid_email( email  ) == False )  :
+        message = request.POST.get('message')
+        if ( valid( detail ) == False ) and ( valid_email( email  ) == False )   :
             messages.info( request , 'Phone number  and email is not valid ')
 
         else :
             messages.info ( request , 'THANK YOU FOR CONTACTING US')
-            link = f'https://wa.me/6009188445?text=This is my Gmeal={email}+ and this is my phone number ={ detail}'
-            redirect( link )
 
         # if valid_email( email  ) == False :
         #     messages.info( request , 'Invalid Emialis not valid ')

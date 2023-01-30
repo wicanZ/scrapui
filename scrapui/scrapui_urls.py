@@ -18,7 +18,6 @@ from scrapui.views import (
     listscrap,
     editscrap,
     viewscrap,
-    chat,
     contact ,
     blog ,
     feature ,
@@ -41,10 +40,6 @@ urlpatterns = [
     path('contact/' , contact , name='contact'),
     path('blog/' , blog , name='blog') ,
     path('feature/' , feature , name='feature') ,
-
-
-    path('bot/', chat , name='bot' ) ,
-
 
     re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT,})
 ]  +   static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

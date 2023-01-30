@@ -7,7 +7,7 @@
       <div class="container border">
 
         <div class="container-fluid border p-4 m-2">
-          <h1 class="text-center">Latest Scrap </h1>
+          <h3 class="text-center">Latest Scrap </h3>
           <hr>
           <div class="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4 pt-2">
             {% for scraps in scrap %}
@@ -18,8 +18,9 @@
                   <img src="{{ scraps.images.url }}" class="card-img-top" alt="{{ scraps.name }}">
                   <div class="card-bod">
                     <h5 class="card-title ml-2">{{ scraps.name}} </h5>
-                    <p class="card-text m-2">{{ scraps.descriptive| slice:250 }} </p>
-                    <a href="{% url 'viewscrap' scraps.id %}" class="btn btn-primary">View </a>
+                    <p class="card-text m-2">{{ scraps.descriptive| slice:210 }} </p>
+                    <hr>
+                    <a href="{% url 'viewscrap' scraps.id %}" class="btn btn-primary float-right bottom-0">View </a>
                   </div>
                 </div>
                 
@@ -36,7 +37,7 @@
 
 
         <div class="text-center bg-img">
-            <h1 class="center-text py-4" style="font-size: 2vw;">scrappui help you clean your sourroounding</h1>
+            <h1 class="center-text py-4" style="font-size: 2em;">scrappui help you clean your sourroounding</h1>
             <h3>We are team of talented designers</h3>
             <p >Our team will make your life easier</p>
             
@@ -163,32 +164,30 @@
 
       <div class="border rounded align-items-center p-4 m-4">
               <div class="m-2 border-bottom">
-                  <p>Contact Us</p>
+                  <h4 class="text-muted">Contact Us on Whatsapp </h4>
                   <div class="">
                     <div id="mess" class=""></div>
                   </div>
                   
               </div>
-
-
-
               <div class="form-group">
                   <label for="email">
-                      Enter your Gmail
+                      Email
                   </label>
                   <input name="c_email" class="form-control " id="contact_email" value="" type="email" placeholder="Eg : wzard@gmail.com" required/>
                   <small id="emailHelp" class="form-text text-muted">We'll never share your information with anyone</small>
               </div>
+
               <div class="mb-4 form-group">
-                  <label class="" for="detail">
-                  Enter your Phone Number
-                  </label>
-                  <input name="detail" class="form-control" id="detail" type="text" value="" placeholder="Eg : 6009188444" required/>
-                  
-              </div>
+                <label for="message">Message</label>
+                <p class="text-muted">
+                    Please provide your question and any additional context that will be usefull for our team 
+                </p>
+                <textarea class="form-control" id="message_c" rows="4"></textarea>
+            </div>
               <div class="items-center text-center btn-group mb-4 ">
                   <button class=" btn btn-sm btn-primary"  onclick="contactusww()">
-                  Send
+                  Submit
                   </button>
                   
               </div>
@@ -217,14 +216,20 @@
                 </div>
                 <div class="modal-body">
                   <p class="text-muted">hello, welcome to our scrapui , how can i helped you?</p>
-                  <div class="body-bot">
-                    <ul class="chat" id="chatbot">
-                     <!-- message in-box -->
-                    </ul>
-                    <div class="footer-bot">
-                        <input name="bot" class="input-bot" id="bot" type="text" placeholder="reply to scrapui.."/>
-                        <button class="reply contain" type="submit" onclick="Chatus()">reply</button>
-                    </div>
+                  <div class="main-body">
+                      <div class="body-bot">
+                        <ul class="chat" id="chatbot">
+                        <!-- message in-box -->
+                        </ul>
+                      </div>
+
+
+                      <div class="input-group mb-3 footer-bot">
+                        <input type="text" class="form-control input-bot" id="bot" placeholder="Reply to scrapui" aria-label="Response" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                          <span class="input-group-text reply contain" id="basic-addon2" onclick="Chatus()">reply</span>
+                        </div>
+                      </div>
                 </div>
                 </div>
               </div>
@@ -271,7 +276,7 @@
         
         
 
-        <div class="container-fluid border p-4 m-2">
+        <div class="container-fluid border p-4 m-2" id="about">
           <h1 class="text-center">About Us</h1>
           <hr>
           <div class="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4 pt-2">
@@ -360,32 +365,30 @@
 
       <div class="border rounded align-items-center p-4 m-4">
               <div class="m-2 border-bottom">
-                  <h4 class="text-muted">Contact Us</h4>
+                  <h4 class="text-muted">Contact Us on Whatsapp </h4>
                   <div class="">
                     <div id="mess" class=""></div>
                   </div>
                   
               </div>
-
-
-
               <div class="form-group">
                   <label for="email">
-                      Enter your Gmail
+                      Email
                   </label>
                   <input name="c_email" class="form-control " id="contact_email" value="" type="email" placeholder="Eg : wzard@gmail.com" required/>
                   <small id="emailHelp" class="form-text text-muted">We'll never share your information with anyone</small>
               </div>
+
               <div class="mb-4 form-group">
-                  <label class="" for="detail">
-                  Enter your Phone Number
-                  </label>
-                  <input name="detail" class="form-control" id="detail" type="text" value="" placeholder="Eg : 6009188444" required/>
-                  
-              </div>
+                <label for="message">Message</label>
+                <p class="text-muted">
+                    Please provide your question and any additional context that will be usefull for our team 
+                </p>
+                <textarea class="form-control" id="message_c" rows="4"></textarea>
+            </div>
               <div class="items-center text-center btn-group mb-4 ">
                   <button class=" btn btn-sm btn-primary"  onclick="contactusww()">
-                  Send
+                  Submit
                   </button>
                   
               </div>
