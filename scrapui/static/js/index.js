@@ -65,6 +65,7 @@ function Chatus(){
         signin: ['signin','login'],
         gretting: ['hi','hey','hello'],
     } 
+    
     botnode.className = 'message right';
     usernode.className = 'message left';
     if(usertext === ''){
@@ -192,25 +193,22 @@ function contactusww( ) {
 
     if( email === '' || message === '' ) {
         mess.classList.add("error");
-        mess.innerHTML = 'Input cannot be Empty ' ;
+        mess.innerHTML = ' Input cannot be Empty ' ;
         disapearTime( mess , ' ' , 4000 ) ;  
     }
 
     else { 
         if( (!ValidateEmail( email ) )){
             mess.classList.add("error");
-            mess.textContent = 'invalid Email and Phone number ' ;
+            mess.textContent = 'Email not valid' ;
             disapearTime( mess , ' ' , 4000 ) ; 
         }else{
             mess.classList.add("error");
             mess.textContent = 'Thank you for reach out to us' ;
-            disapearTime( mess , ' ' , 4000 ) ; 
-            //location.href = `https://wa.me/6009188445?text=This is my Gmail=${email}+ and this is my phone number =${ message }`
+            disapearTime( mess , ' ' , 5000 ) ; 
+            window.open(`https://wa.me/6009188445?text=Email=${email}+ , ${ message }`)
+            
 
         }
     }
-
-    console.log( ValidateEmail( email ) ,  message )  ;
-
-    //location.href = `https://wa.me/6009188445?text=This is my Gmail=${email}+ and this is my phone number =${detail}`
 }
